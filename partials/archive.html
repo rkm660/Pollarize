@@ -1,0 +1,45 @@
+<div class="container">
+	<ul class="nav nav-tabs">
+  		<li class="active"><a href="#/archive">General</a></li>
+  		<li><a href="#/science">Social Science</a></li>
+	</ul>
+    <div ng-repeat="(key, poll) in polls">
+        <div class="row text-center">
+            <h1 style="padding-bottom:20px"><strong>{{poll.poll}}</strong></h1>
+        </div>
+        <div style="padding-bottom:25px" class="row text-center">
+            <div class="col-xs-6 col-md-6">
+                <button ng-click="chooseA(key,poll)" class="btn btn-default">
+                    <h3>{{poll.answerA}}</h3></button>
+            </div>
+            <div class="col-xs-6 col-md-6">
+                <button ng-click="chooseB(key,poll)" class="btn btn-default">
+                    <h3>{{poll.answerB}}</h3></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-1">
+            <h4>{{poll.votesA.length-1}} votes</h4>
+            </div>
+            <div class="col-xs-11">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{poll.votesARatio}}" aria-valuemin="0" aria-valuemax="100" style="width: {{poll.votesARatio}}%;">
+                        {{poll.votesARatio}}%
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+        	<div class="col-xs-1">
+            	<h4>{{poll.votesB.length-1}} votes</h4>
+            </div>
+            <div class="col-xs-11">
+				<div class="progress">
+					<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{poll.votesBRatio}}" aria-valuemin="0" aria-valuemax="100" style="width: {{poll.votesBRatio}}%;">
+						{{poll.votesBRatio}}%
+					</div>
+				</div>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,30 @@
+<div class="container">
+<div class="text-center" ng-show="poll == null && $root.currentUser">
+<h1><strong>No more polls to vote on -- Click <a href="#/submit">here</a> to submit your own.</strong></h1>
+</div>
+<div class="text-center" ng-show="!$root.currentUser">
+<h1><strong>Please login to see and vote on polls.</strong></h1>
+</div>
+<div ng-show="poll != null" class="row text-center">
+<h1 style="padding-bottom:20px"><strong>{{poll[1].poll}}</strong></h1>
+</div>
+<div ng-show="poll != null" style="padding-bottom:25px" class="row text-center">
+  <div class="col-xs-6 col-md-5"><button ng-click="chooseA(poll[0],poll[1])" class="btn btn-default"><h3>{{poll[1].answerA}}</h3></button></div>
+  <div class="col-xs-6 col-md-2"><button ng-click="skip(poll[0],poll[1])" class="btn btn-default"><h4>Skip</h4></button></div>
+  <div class="col-xs-6 col-md-5"><button ng-click="chooseB(poll[0],poll[1])" class="btn btn-default"><h3>{{poll[1].answerB}}</h3></button></div>
+</div>
+
+<div ng-show="$root.currentUser && userHasVoted(poll[1])" class="row text-center">
+<div class="progress">
+  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{poll[1].votesARatio}}" aria-valuemin="0" aria-valuemax="100" style="width: {{poll[1].votesARatio}}%;">
+    {{poll[1].votesARatio}}%
+  </div>
+</div>
+<div class="progress">
+  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{poll[1].votesBRatio}}" aria-valuemin="0" aria-valuemax="100" style="width: {{poll[1].votesBRatio}}%;">
+    {{poll[1].votesBRatio}}%
+  </div>
+</div>
+<button ng-click="getNextPoll()" class="btn btn-default text-center"><h3>Continue</h3></button>
+</div>
+</div>

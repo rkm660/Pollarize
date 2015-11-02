@@ -1,0 +1,43 @@
+<div class="container">
+<div class="row">
+<div class="input-group">
+  <span class="input-group-addon" id="pollQuestion">Poll</span>
+  <input ng-model="poll" type="text" class="form-control" placeholder="What's your question?" aria-describedby="pollQuestion">
+</div>
+</div>
+<div class="row">
+<div class="input-group">
+  <span class="input-group-addon" id="pollAnswer1">A</span>
+  <input ng-model="a1" type="text" class="form-control" placeholder="First option" aria-describedby="pollAnswer1">
+</div>
+</div>
+<div class="row">
+<div class="input-group">
+  <span class="input-group-addon" id="pollAnswer2">B</span>
+  <input ng-model="a2" type="text" class="form-control" placeholder="Second option" aria-describedby="pollAnswer2">
+</div>
+</div>
+<div class="row">
+<div class="input-group">
+  <span class="input-group-addon" id="dateBy">Due Date</span>
+  <select ng-model="date" class="form-control">
+    <option disabled selected value="none">At latest, when do you want the result emailed to you?</option>
+    <option value="day">1 Day</option>
+    <option value="week">1 Week</option>
+    <option value="month">1 Month</option>
+    <option value="year">1 Year</option>
+</select>
+</div>
+</div>
+<div class="row">
+<div class="input-group">
+  <span class="input-group-addon" id="dateBy">Category</span>
+  <select ng-model="category" class="form-control">
+    <option value="Science">Social Science</option>
+</select>
+</div>
+</div>
+<div class="row text-center">
+<button ng-click="submitPost(poll, a1, a2, date, category)" class="btn btn-lg btn-primary">Submit</button>
+</div>
+</div>
